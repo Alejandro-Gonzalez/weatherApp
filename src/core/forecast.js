@@ -8,7 +8,7 @@ export const getWeatherData = async (city, country) => {
 		const data = await response.json();
 
 		if (data && data.code && data.code !== '200')
-			throw ReferenceError('Request Error', data.message)
+			throw ReferenceError('Request Error', data.message);
 
 		return formatData(data);
 	} catch (error) {
@@ -24,7 +24,7 @@ export const getForecastData = async (city, country) => {
 		const data = await response.json();
 
 		if (data && data.code && data.code !== '200')
-			throw ReferenceError('Request Error', data.message)
+			throw ReferenceError('Request Error', data.message);
 
 		return filterData(data);
 	} catch (error) {

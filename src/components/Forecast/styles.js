@@ -48,7 +48,7 @@ export const Temperature = styled(Typography).attrs({
 	variant: 'caption',
 	color: 'primary'
 })`
-	font-size: .7rem;
+	font-size: 0.7rem;
 	display: flex;
 	align-items: flex-start;
 	letter-spacing: 0px;
@@ -64,10 +64,10 @@ export const Icon = styled(Icons).attrs({
 export const Failed = styled(ErrorMessage)`
 	flex-direction: row;
 	height: 120px;
-	
+
 	&& span,
 	&& svg {
 		height: 80px;
 		width: 100px;
 	}
-`
+`;

@@ -9,7 +9,10 @@ import { useForecast } from 'hooks/useForecast';
 
 export const App = () => {
 	const { current, cityName, countryCode, cities, handleCity } = useCities();
-	const { weather, loadingWeather, extended, loadingExtended, error } = useForecast(cityName, countryCode);
+	const { weather, loadingWeather, extended, loadingExtended, error } = useForecast(
+		cityName,
+		countryCode
+	);
 
 	return (
 		<>

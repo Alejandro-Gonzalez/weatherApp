@@ -11,7 +11,7 @@ const Icons = props => {
 
 		return (
 			<Container className={slug} {...props}>
-				<Icon {...props}/>
+				<Icon {...props} />
 			</Container>
 		);
 	} catch (reason) {

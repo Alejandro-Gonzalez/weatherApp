@@ -11,13 +11,13 @@ export const useForecast = (cityName, countryCode) => {
 	useEffect(() => {
 		if (cityName && countryCode) {
 			setLoadingWeather(true);
-			setLoadingExtended(true)
-	
+			setLoadingExtended(true);
+
 			getWeatherData(cityName, countryCode)
 				.then(setWeather)
 				.catch(() => setError(true))
 				.finally(() => setLoadingWeather(false));
-	
+
 			getForecastData(cityName, countryCode)
 				.then(setExtended)
 				.catch(() => setError(true))

@@ -1,0 +1,24 @@
+{
+	"extends": [
+		"prettier/react",
+		"prettier"
+	],
+	"plugins": [
+		"prettier"
+	],
+	"parser": "babel-eslint",
+	"rules": {
+		"prettier/prettier": "error"
+	},
+	"settings": {
+		"import/resolver": {
+			"node": {
+				"moduleDirectory": ["node_modules", "src/js"]
+			}
+		}
+	},
+	"globals": {
+		"localStore": false,
+		"sessionStore": false
+	}
+}

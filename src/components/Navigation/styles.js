@@ -6,8 +6,7 @@ export const List = styled(Tabs).attrs({
 	textColor: 'primary',
 	variant: 'scrollable',
 	indicatorColor: 'primary'
-})`
-`;
+})``;
 
 export const Item = styled(Tab).attrs({
 	color: 'secondary'

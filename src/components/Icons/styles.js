@@ -6,11 +6,17 @@ import { getColor } from 'core/mui';
 export const Container = withTheme(
 	styled.span`
 		${flexCenter}
-	
-		.white {fill: ${getColor('common', 'white')}};
-		.gray {fill: ${getColor('secondary', 'light')} }
-		.yellow {fill: ${getColor('secondary', 'main')}}
-	
+
+		.white {
+			fill: ${getColor('common', 'white')};
+		}
+		.gray {
+			fill: ${getColor('secondary', 'light')};
+		}
+		.yellow {
+			fill: ${getColor('secondary', 'main')};
+		}
+
 		${({ width, height }) =>
 			width &&
 			css`
@@ -22,4 +28,3 @@ export const Container = withTheme(
 			`}
 	`
 );
-

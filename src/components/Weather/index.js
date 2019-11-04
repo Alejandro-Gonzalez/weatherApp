@@ -66,6 +66,7 @@ const Weather = ({ city, date, temp, wind, max, min, status, humidity, isLoading
 };
 
 Weather.propTypes = {
+	error: bool,
 	status: objectOf(string),
 	city: string,
 	date: string,
@@ -79,6 +80,7 @@ Weather.propTypes = {
 
 Weather.defaultProps = {
 	status: {},
+	error: false,
 	city: '',
 	date: '',
 	temp: 0,
