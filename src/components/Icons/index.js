@@ -20,10 +20,11 @@ const Icons = props => {
 };
 
 Icons.propTypes = {
-	slug: string.isRequired
+	slug: string
 };
 
 Container.defaultProps = {
+	slug: '',
 	width: 60
 };
 

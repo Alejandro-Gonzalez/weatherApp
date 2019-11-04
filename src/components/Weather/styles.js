@@ -7,6 +7,36 @@ import { flexCenter } from 'core/mixins';
 import { getColor } from 'core/mui';
 import Icons from 'components/Icons';
 
+export const Container = withTheme(
+	styled(Grid).attrs({
+		container: true
+	})`
+		padding: 20px 10px;
+		background: ${getColor('grey', 100)};
+		border-bottom: 1px solid ${getColor('common', 'white')};
+		min-height: 260px;
+		height: calc(100vh - 230px);
+
+		${({ loading }) => !!loading && css`
+			${flexCenter}
+		`}
+	`
+);
+
+export const Loader = styled(CircularProgress).attrs({
+	color: 'secondary',
+	size: 60
+})``;
+
+export const Header = styled(Grid).attrs({
+	container: true
+})`
+	display: flex;
+	flex-direction: column;
+	flex-wrap: initial;
+	margin: 10px 0px;
+`;
+
 export const Title = withTheme(
 	styled(Typography).attrs({
 		variant: 'h2'
@@ -28,10 +58,29 @@ export const Text = withTheme(
 	`
 );
 
-export const Loader = styled(CircularProgress).attrs({
-	color: 'secondary',
-	size: 60
-})``;
+export const Body = styled(Grid).attrs({
+	container: true,
+	spacing: 2
+})`
+	height: 180px;
+`;
+
+export const Details = styled(Grid).attrs({
+	item: true,
+	xs: 7
+})`
+	${flexCenter}
+	flex-direction: column;
+	flex-wrap: initial;
+`;
+
+export const Forecast = styled(Grid).attrs({
+	item: true,
+	xs: 5
+})`
+	${flexCenter}
+	flex-direction: column;
+`;
 
 export const Temperature = styled(Typography).attrs({
 	variant: 'h1',
@@ -68,52 +117,3 @@ export const Superindice = styled(Typography).attrs({
 export const Icon = styled(Icons).attrs({
 	width: 100
 })``;
-
-export const Body = styled(Grid).attrs({
-	container: true,
-	spacing: 2
-})`
-	height: 180px;
-`;
-
-export const Container = withTheme(
-	styled(Grid).attrs({
-		container: true
-	})`
-		padding: 20px 10px;
-		background: ${getColor('grey', 100)};
-		border-bottom: 1px solid ${getColor('common', 'white')};
-		min-height: 260px;
-		height: calc(100vh - 230px);
-
-		${({ isLoading }) => isLoading && css`
-			${flexCenter}
-		`}
-	`
-);
-
-export const Header = styled(Grid).attrs({
-	container: true
-})`
-	display: flex;
-	flex-direction: column;
-	flex-wrap: initial;
-	margin: 10px 0px;
-`;
-
-export const Forecast = styled(Grid).attrs({
-	item: true,
-	xs: 5
-})`
-	${flexCenter}
-	flex-direction: column;
-`;
-
-export const Details = styled(Grid).attrs({
-	item: true,
-	xs: 7
-})`
-	${flexCenter}
-	flex-direction: column;
-	flex-wrap: initial;
-`;

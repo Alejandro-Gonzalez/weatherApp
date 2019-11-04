@@ -4,8 +4,8 @@ import { arrayOf, object } from 'prop-types';
 
 const Forecast = ({ list }) => (
 	<Container>
-		{list.map(({ max, min, day, status }) => (
-			<Card>
+		{list.map(({ date, max, min, day, status }) => (
+			<Card key={date}>
 				<Title>{day}</Title>
 				<Icon slug={status && status.slug} />
 				<Temperature>

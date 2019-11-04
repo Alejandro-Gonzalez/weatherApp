@@ -15,7 +15,7 @@ import {
 } from './styles';
 
 const Weather = ({ city, date, temp, wind, max, min, status, humidity, isLoading }) => (
-	<Container isLoading={isLoading}>
+	<Container loading={isLoading ? 1 : 0}>
 		{isLoading ? (
 			<Loader />
 		) : (

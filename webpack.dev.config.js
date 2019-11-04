@@ -1,6 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
-const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
@@ -39,9 +38,6 @@ module.exports = {
 		}),
 		new MomentLocalesPlugin({
 			localesToKeep: ['es']
-		}),
-		new webpack.DllReferencePlugin({
-			manifest: require('./modules-manifest.json')
 		})
 	]
 };
