@@ -1,7 +1,7 @@
 export const overrides = {
 	MuiButton: {
 		root: {
-			textTransform: 'inherit'
+			textTransform: 'none'
 		}
 	},
 	MuiTab: {
