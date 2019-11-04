@@ -1,16 +1,9 @@
 import { useState, useEffect } from 'react';
+import { citiesCodes } from 'constant/citiesCodes';
 
 export const useCities = () => {
-	const reference = {
-		arg: 'Buenos Aires',
-		mex: 'Ciudad de México',
-		esp: 'Madrid',
-		bra: 'Brasilia',
-		jpn: 'Tokio',
-		deu: 'Berlín'
-	};
-	const cities = Object.values(reference);
-	const codes = Object.keys(reference);
+	const cities = Object.values(citiesCodes);
+	const codes = Object.keys(citiesCodes);
 
 	const [current, setCurrent] = useState(0);
 	const [cityName, setCityName] = useState(cities[0]);
