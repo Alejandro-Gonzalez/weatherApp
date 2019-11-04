@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Card, Title, Temperature, Icon } from './styles';
-import { arrayOf, object } from 'prop-types';
+import { arrayOf, object, bool } from 'prop-types';
 import Skeleton from '@material-ui/lab/Skeleton';
 
 const Forecast = ({ list, isLoading }) => (
@@ -10,7 +10,7 @@ const Forecast = ({ list, isLoading }) => (
 					<Card key={id}>
 						<Skeleton width="60%" />
 						<Skeleton variant="rect" width="100%" height={70} />
-						<Skeleton width="60%"/>
+						<Skeleton width="60%" />
 					</Card>
 			  ))
 			: list.map(({ date, max, min, day, status }) => (
@@ -26,10 +26,12 @@ const Forecast = ({ list, isLoading }) => (
 );
 
 Forecast.propTypes = {
+	isLoading: bool,
 	list: arrayOf(object)
 };
 
 Forecast.defaultProps = {
+	isLoading: false,
 	list: []
 };
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { string, objectOf, number, bool } from 'prop-types';
 import {
 	Body,
 	Header,
@@ -51,6 +52,28 @@ const Weather = ({ city, date, temp, wind, max, min, status, humidity, isLoading
 	</Container>
 );
 
-Weather;
+Weather.propTypes = {
+	status: objectOf(string),
+	city: string,
+	date: string,
+	humidity: number,
+	temp: number,
+	wind: number,
+	max: number,
+	min: number,
+	isLoading: bool
+};
+
+Weather.defaultProps = {
+	status: {},
+	city: '',
+	date: '',
+	temp: 0,
+	wind: 0,
+	max: 0,
+	min: 0,
+	humidity: 0,
+	isLoading: false
+};
 
 export default Weather;
