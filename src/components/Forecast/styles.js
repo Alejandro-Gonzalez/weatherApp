@@ -4,6 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import { getColor } from 'core/mui';
 import { flexCenter } from 'core/mixins';
+import ErrorMessage from 'components/ErrorMessage';
 import Icons from 'components/Icons';
 
 export const Container = withTheme(
@@ -59,3 +60,14 @@ export const Icon = styled(Icons).attrs({
 })`
 	margin: 10px 0px;
 `;
+
+export const Failed = styled(ErrorMessage)`
+	flex-direction: row;
+	height: 120px;
+	
+	&& span,
+	&& svg {
+		height: 80px;
+		width: 100px;
+	}
+`

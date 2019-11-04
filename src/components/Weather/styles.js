@@ -17,9 +17,11 @@ export const Container = withTheme(
 		min-height: 260px;
 		height: calc(100vh - 230px);
 
-		${({ loading }) => !!loading && css`
-			${flexCenter}
-		`}
+		${({ centered }) =>
+			!!centered &&
+			css`
+				${flexCenter}
+			`}
 	`
 );
 

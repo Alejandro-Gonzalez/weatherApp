@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { getForecastData, getWeatherData } from 'core/forecast';
 
 export const useForecast = (cityName, countryCode) => {
+	const [error, setError] = useState(null);
 	const [weather, setWeather] = useState({});
 	const [extended, setExtended] = useState([]);
 	const [loadingWeather, setLoadingWeather] = useState(false);
@@ -14,10 +15,12 @@ export const useForecast = (cityName, countryCode) => {
 	
 			getWeatherData(cityName, countryCode)
 				.then(setWeather)
+				.catch(() => setError(true))
 				.finally(() => setLoadingWeather(false));
 	
 			getForecastData(cityName, countryCode)
 				.then(setExtended)
+				.catch(() => setError(true))
 				.finally(() => setLoadingExtended(false));
 		}
 	}, [cityName, countryCode]);
@@ -26,6 +29,7 @@ export const useForecast = (cityName, countryCode) => {
 		loadingExtended,
 		extended,
 		loadingWeather,
-		weather
+		weather,
+		error
 	};
 };

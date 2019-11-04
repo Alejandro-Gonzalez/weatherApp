@@ -1,5 +1,6 @@
 import React from 'react';
 import { string, objectOf, number, bool } from 'prop-types';
+import ErrorMessage from 'components/ErrorMessage';
 import {
 	Body,
 	Header,
@@ -15,42 +16,54 @@ import {
 	Icon
 } from './styles';
 
-const Weather = ({ city, date, temp, wind, max, min, status, humidity, isLoading }) => (
-	<Container loading={isLoading ? 1 : 0}>
-		{isLoading ? (
-			<Loader />
-		) : (
-			<>
-				<Header>
-					<Title>{city}</Title>
+const Weather = ({ city, date, temp, wind, max, min, status, humidity, isLoading, error }) => {
+	if (isLoading) {
+		return (
+			<Container centered>
+				<Loader />
+			</Container>
+		);
+	}
+
+	if (!isLoading && error && !date) {
+		return (
+			<Container centered>
+				<ErrorMessage />
+			</Container>
+		);
+	}
+
+	return (
+		<Container>
+			<Header>
+				<Title>{city}</Title>
+				<Text>
+					{date} - {status && status.description}
+				</Text>
+			</Header>
+			<Body>
+				<Forecast>
+					<Icon slug={status && status.slug} />
+				</Forecast>
+				<Details>
+					<Temperature>
+						{temp}
+						<Superindice>°C</Superindice>
+					</Temperature>
+					<Leyend>
+						max: {max}° - min: {min}°
+					</Leyend>
 					<Text>
-						{date} - {status && status.description}
+						Humedad: <b>{humidity}%</b>
 					</Text>
-				</Header>
-				<Body>
-					<Forecast>
-						<Icon slug={status && status.slug} />
-					</Forecast>
-					<Details>
-						<Temperature>
-							{temp}
-							<Superindice>°C</Superindice>
-						</Temperature>
-						<Leyend>
-							max: {max}° - min: {min}°
-						</Leyend>
-						<Text>
-							Humedad: <b>{humidity}%</b>
-						</Text>
-						<Text>
-							Viento a <b>{wind} m/seg</b>
-						</Text>
-					</Details>
-				</Body>
-			</>
-		)}
-	</Container>
-);
+					<Text>
+						Viento a <b>{wind} m/seg</b>
+					</Text>
+				</Details>
+			</Body>
+		</Container>
+	);
+};
 
 Weather.propTypes = {
 	status: objectOf(string),

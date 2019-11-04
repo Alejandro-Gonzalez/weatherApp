@@ -12,7 +12,8 @@ export const getWeatherData = async (city, country) => {
 
 		return formatData(data);
 	} catch (error) {
-		return {};
+		console.error(error);
+		return error;
 	}
 };
 
@@ -27,6 +28,7 @@ export const getForecastData = async (city, country) => {
 
 		return filterData(data);
 	} catch (error) {
-		return {};
+		console.error(error);
+		return error;
 	}
 };
