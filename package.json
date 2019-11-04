@@ -1,0 +1,46 @@
+{
+  "name": "weatherapp",
+  "version": "1.0.0",
+  "description": "Proyecto de pruebas para practicas en general",
+  "main": "index.js",
+  "dependencies": {
+    "@material-ui/core": "4.5.2",
+    "moment": "2.24.0",
+    "prop-types": "15.7.2",
+    "react": "16.11.0",
+    "react-dom": "16.11.0",
+    "styled-components": "4.4.1"
+  },
+  "devDependencies": {
+    "@babel/core": "7.6.4",
+    "@babel/plugin-transform-runtime": "7.6.2",
+    "@babel/preset-env": "7.6.3",
+    "@babel/preset-react": "7.6.3",
+    "babel-loader": "8.0.6",
+    "babel-plugin-inline-react-svg": "^1.1.0",
+    "eslint": "6.6.0",
+    "html-webpack-plugin": "3.2.0",
+    "jss": "10.0.0",
+    "moment-locales-webpack-plugin": "1.1.0",
+    "prettier": "1.18.2",
+    "react-inlinesvg": "^1.1.7",
+    "svg-inline-loader": "^0.8.0",
+    "svg-react-loader": "0.4.6",
+    "webpack": "4.41.2",
+    "webpack-cli": "3.3.10",
+    "webpack-dev-server": "3.9.0"
+  },
+  "scripts": {
+    "build": "webpack",
+    "build:dll": "webpack --config ./webpack.dll.config.js --mode production",
+    "watch": "webpack-dev-server --config ./webpack.dev.config.js --mode development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://guzmanpablo@bitbucket.org/guzmanpablo/weatherapp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/guzmanpablo/weatherapp#readme"
+}
