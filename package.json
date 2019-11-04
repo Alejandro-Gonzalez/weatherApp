@@ -33,6 +33,7 @@
   "scripts": {
     "build": "webpack",
     "build:dll": "webpack --config ./webpack.dll.config.js --mode production",
+    "now-build": "npm run build",
     "watch": "webpack-dev-server --config ./webpack.dev.config.js --mode development"
   },
   "repository": {
