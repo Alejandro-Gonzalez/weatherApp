@@ -24,9 +24,9 @@ const Forecast = ({ list, error, isLoading }) => {
 
 	return (
 		<Container>
-			{list.map(({ date, max, min, day, status }) => (
+			{list.map(({ date, max, min, shortDay, status }) => (
 				<Card key={date}>
-					<Title>{day}</Title>
+					<Title>{shortDay}</Title>
 					<Icon slug={status && status.slug} />
 					<Temperature>
 						<b>{max}°</b>/{min}°
