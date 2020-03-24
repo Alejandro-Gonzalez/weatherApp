@@ -3,12 +3,7 @@ const webpack = require('webpack');
 
 module.exports = {
 	entry: {
-		modules: [
-			'styled-components',
-			'react',
-			'react-dom',
-			'prop-types'
-		]
+		modules: ['styled-components', 'react', 'react-dom', 'prop-types']
 	},
 	output: {
 		path: path.resolve(__dirname, 'dist'),

@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 const path = require('path');
 
 module.exports = {
@@ -32,7 +33,11 @@ module.exports = {
 			}
 		]
 	},
+	node: {
+		fs: 'empty'
+	},
 	plugins: [
+		new Dotenv({ path: './.env', safe: true }),
 		new HtmlWebpackPlugin({
 			template: './src/index.html'
 		}),

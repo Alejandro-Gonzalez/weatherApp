@@ -1,4 +1,4 @@
-import { API_KEY, API_URL } from 'constant/api';
+import { API_KEY, API_URL } from '../config';
 import { formatData, filterData } from 'core/format';
 
 const fetchData = async query => {

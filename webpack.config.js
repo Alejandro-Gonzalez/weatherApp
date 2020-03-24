@@ -33,12 +33,15 @@ module.exports = {
 			}
 		]
 	},
+	node: {
+		fs: 'empty'
+	},
 	plugins: [
 		new HtmlWebpackPlugin({
 			template: './src/index.html'
 		}),
 		new MomentLocalesPlugin({
-			localesToKeep: ['es'],
+			localesToKeep: ['es']
 		}),
 		new webpack.DllReferencePlugin({
 			manifest: require('./modules-manifest.json')
