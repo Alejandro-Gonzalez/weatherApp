@@ -1,8 +1,8 @@
 import moment from 'moment';
 import 'moment/locale/es';
-import { getWeatherStatus } from 'core/status';
+import { getWeatherStatus } from 'utils/status';
 
-export const formatData = ({ dt, wind, main, weather, sys }) => {
+export const formatData = ({ dt, wind, main, weather, sys, name: city }) => {
 	const now = moment.unix(dt);
 	const date = moment(now).format('dddd DD MMMM, HH:mm');
 	const shortDay = moment(now).format('ddd');
@@ -10,11 +10,14 @@ export const formatData = ({ dt, wind, main, weather, sys }) => {
 	const { humidity, temp, temp_max, temp_min } = main;
 
 	const [data] = weather || [];
+	const code = sys && sys.country && sys.country.toLowerCase();
 	const status = getWeatherStatus(data, now, sys);
 	const max = Math.round(temp_max);
 	const min = Math.round(temp_min);
 
 	return {
+		city,
+		code,
 		wind: speed,
 		shortDay,
 		humidity,

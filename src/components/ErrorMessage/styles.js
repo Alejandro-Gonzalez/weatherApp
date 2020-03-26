@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Typography from '@material-ui/core/Typography';
 import Icon from 'components/Icons';
-import { flexCenter } from 'core/mixins';
+import { flexCenter } from 'utils/mixins';
 
 export const Container = styled.div`
 	${flexCenter}

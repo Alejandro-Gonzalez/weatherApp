@@ -7,6 +7,8 @@ import { GlobalStyles } from 'globalStyles';
 import { useCities } from 'hooks/useCities';
 import { useForecast } from 'hooks/useForecast';
 
+import { Provider } from './context';
+
 export const App = () => {
 	const { current, cityName, countryCode, cities, handleCity } = useCities();
 	const { weather, loadingWeather, extended, loadingExtended, error } = useForecast(
@@ -15,12 +17,12 @@ export const App = () => {
 	);
 
 	return (
-		<>
+		<Provider>
 			<GlobalStyles />
 			<Header />
 			<Navigation current={current} cities={cities} handleCity={handleCity} />
 			<Weather isLoading={loadingWeather} error={error} city={cityName} {...weather} />
 			<Forecast isLoading={loadingExtended} error={error} list={extended} />
-		</>
+		</Provider>
 	);
 };

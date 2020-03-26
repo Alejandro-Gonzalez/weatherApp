@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getForecastData, getWeatherData } from 'core/forecast';
+import { getForecastData, getWeatherData } from 'utils/forecast';
 
 export const useForecast = (cityName, countryCode) => {
 	const [error, setError] = useState(null);

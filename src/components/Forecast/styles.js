@@ -2,8 +2,8 @@ import styled from 'styled-components';
 import { withTheme } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import { getColor } from 'core/mui';
-import { flexCenter } from 'core/mixins';
+import { getColor } from 'utils/mui';
+import { flexCenter } from 'utils/mixins';
 import ErrorMessage from 'components/ErrorMessage';
 import Icons from 'components/Icons';
 

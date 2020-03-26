@@ -3,8 +3,8 @@ import { withTheme } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Grid from '@material-ui/core/Grid';
-import { flexCenter } from 'core/mixins';
-import { getColor } from 'core/mui';
+import { flexCenter } from 'utils/mixins';
+import { getColor } from 'utils/mui';
 import Icons from 'components/Icons';
 
 export const Container = withTheme(

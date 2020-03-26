@@ -1,5 +1,5 @@
 import { API_KEY, API_URL } from '../config';
-import { formatData, filterData } from 'core/format';
+import { formatData, filterData } from 'utils/format';
 
 const fetchData = async query => {
 	try {

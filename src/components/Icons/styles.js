@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { withTheme } from '@material-ui/core/styles';
-import { flexCenter } from 'core/mixins';
-import { getColor } from 'core/mui';
+import { flexCenter } from 'utils/mixins';
+import { getColor } from 'utils/mui';
 
 export const Container = withTheme(
 	styled.span`
