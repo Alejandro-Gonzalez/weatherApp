@@ -1,25 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { List, Item } from './styles';
-import { number, func, arrayOf, string } from 'prop-types';
+import { Context } from 'context';
 
-const Navigation = ({ current, cities, handleCity }) => (
-	<List value={current} onChange={handleCity}>
-		{cities.map((name, i) => (
-			<Item key={name} label={name} tabIndex={i} />
-		))}
-	</List>
-);
+const Navigation = () => {
+	const {
+		cities: { codes, list, current, selectCity }
+	} = useContext(Context);
 
-Navigation.propTypes = {
-	current: number,
-	cities: arrayOf(string),
-	handleCity: func
-};
-
-Navigation.defaultProps = {
-	current: 0,
-	cities: [],
-	handleCity: () => {}
+	return (
+		<List value={current.index} onChange={selectCity}>
+			{codes.map((code, i) => (
+				<Item key={code} label={list[code]} tabIndex={i} />
+			))}
+		</List>
+	);
 };
 
 export default Navigation;

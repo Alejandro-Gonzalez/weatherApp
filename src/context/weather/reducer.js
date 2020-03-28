@@ -8,12 +8,21 @@ import {
 
 export const initial = {
 	weather: {
-		loading: false,
+		error: false,
+		loading: true,
+		status: {},
+		date: null,
 		city: null,
-		code: null
+		temp: null,
+		wind: null,
+		max: null,
+		min: null,
+		humidity: null
 	},
 	forecast: {
-		loading: false,
+		error: false,
+		loading: true,
+		loaders: 5,
 		list: []
 	}
 };
@@ -21,7 +30,10 @@ export const initial = {
 export const reducer = (state, { type, payload }) => {
 	switch (type) {
 		case SET_ERROR:
-			return { ...state, hasError: payload };
+			return {
+				...state,
+				[payload]: true
+			};
 
 		case SET_FORECAST_LOADING:
 			return {

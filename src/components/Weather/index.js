@@ -1,5 +1,5 @@
-import React from 'react';
-import { string, objectOf, number, bool } from 'prop-types';
+import React, { useContext } from 'react';
+import { Context } from 'context';
 import ErrorMessage from 'components/ErrorMessage';
 import {
 	Body,
@@ -16,8 +16,27 @@ import {
 	Icon
 } from './styles';
 
-const Weather = ({ city, date, temp, wind, max, min, status, humidity, isLoading, error }) => {
-	if (isLoading) {
+const Weather = () => {
+	const {
+		cities: { list },
+		weather: {
+			weather: {
+				loading,
+				error,
+				date,
+				code,
+				temp,
+				wind,
+				max,
+				min,
+				humidity,
+				status,
+				status: { description, slug }
+			}
+		}
+	} = useContext(Context);
+
+	if (loading) {
 		return (
 			<Container centered>
 				<Loader />
@@ -25,7 +44,7 @@ const Weather = ({ city, date, temp, wind, max, min, status, humidity, isLoading
 		);
 	}
 
-	if (!isLoading && error && !date) {
+	if (!loading && error) {
 		return (
 			<Container centered>
 				<ErrorMessage />
@@ -36,14 +55,14 @@ const Weather = ({ city, date, temp, wind, max, min, status, humidity, isLoading
 	return (
 		<Container>
 			<Header>
-				<Title>{city}</Title>
+				<Title>{list[code]}</Title>
 				<Text>
-					{date} - {status && status.description}
+					{date} - {status && description}
 				</Text>
 			</Header>
 			<Body>
 				<Forecast>
-					<Icon slug={status && status.slug} />
+					<Icon slug={status && slug} />
 				</Forecast>
 				<Details>
 					<Temperature>
@@ -63,32 +82,6 @@ const Weather = ({ city, date, temp, wind, max, min, status, humidity, isLoading
 			</Body>
 		</Container>
 	);
-};
-
-Weather.propTypes = {
-	error: bool,
-	status: objectOf(string),
-	city: string,
-	date: string,
-	humidity: number,
-	temp: number,
-	wind: number,
-	max: number,
-	min: number,
-	isLoading: bool
-};
-
-Weather.defaultProps = {
-	status: {},
-	error: false,
-	city: '',
-	date: '',
-	temp: 0,
-	wind: 0,
-	max: 0,
-	min: 0,
-	humidity: 0,
-	isLoading: false
 };
 
 export default Weather;

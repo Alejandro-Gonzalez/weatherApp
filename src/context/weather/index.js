@@ -16,12 +16,21 @@ const useWeather = cities => {
 		setWeatherLoading,
 		setForecastData,
 		setForecastLoading,
-		hasError
+		generalError,
+		setForecastError,
+		setWeatherError
 	} = actions(dispatch);
 
 	const loading = () => {
 		setWeatherLoading(true);
 		setForecastLoading(true);
+	};
+
+	const handlingError = () => {
+		const { weather, forecast } = state;
+		if (!forecast.list.lenght) setForecastError();
+		else if (!weather.date) setWeatherError();
+		else generalError();
 	};
 
 	useEffect(() => {
@@ -36,7 +45,7 @@ const useWeather = cities => {
 				const forecast = await getForecastByCode(cities.current);
 				setForecastData(forecast);
 			} catch (err) {
-				hasError(err);
+				handlingError();
 			}
 		})();
 	}, [cities.current.city]);
@@ -54,14 +63,13 @@ const useWeather = cities => {
 					setForecastData(forecast);
 				}
 			} catch (err) {
-				hasError(err);
+				handlingError();
 			}
 		})();
 	}, [cities.coords]);
 
 	useEffect(() => {
-		const [first] = Object.keys(cities.list);
-		cities.selectCity(first);
+		cities.selectCity(0);
 	}, [cities.list]);
 
 	return state;

@@ -39,9 +39,9 @@
   "scripts": {
     "build": "webpack",
     "build:dll": "webpack --config ./webpack.dll.config.js --mode production",
-    "changelog:major": "changelog -M && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md",
-    "changelog:minor": "changelog -m && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md",
-    "changelog:patch": "changelog -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md",
+    "changelog:major": "changelog -M && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version major",
+    "changelog:minor": "changelog -m && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version minor",
+    "changelog:patch": "changelog -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version patch",
     "now-build": "npm run build",
     "watch": "webpack-dev-server --config ./webpack.dev.config.js --mode development"
   },

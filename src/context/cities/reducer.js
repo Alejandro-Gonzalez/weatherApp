@@ -1,8 +1,9 @@
-import { SET_LOADING, SET_COORDS, SET_CURRENT, ADD_CITY } from './types';
+import { SET_LOADING, SET_COORDS, SET_CURRENT, ADD_CITY, SET_CODES } from './types';
 
 export const initial = {
 	loading: false,
 	coords: null,
+	codes: [],
 	list: {
 		ar: 'Buenos Aires',
 		mx: 'Ciudad de México',
@@ -26,6 +27,12 @@ export const reducer = (state, { type, payload }) => {
 		case SET_COORDS:
 			return { ...state, coords: payload };
 
+		case SET_CODES:
+			return {
+				...state,
+				codes: Object.keys(state.list)
+			};
+
 		case ADD_CITY:
 			return {
 				...state,
@@ -39,9 +46,9 @@ export const reducer = (state, { type, payload }) => {
 			return {
 				...state,
 				current: {
-					index: payload.index,
-					city: payload.city,
-					code: payload.code
+					code: state.codes[payload] || '',
+					city: state.list[state.codes[payload]] || '',
+					index: payload || 0
 				}
 			};
 

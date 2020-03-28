@@ -1,33 +1,42 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Context } from 'context';
 import { Container, Card, Title, Temperature, Icon, Failed } from './styles';
-import { arrayOf, object, bool } from 'prop-types';
 import Skeleton from '@material-ui/lab/Skeleton';
 
-const Forecast = ({ list, error, isLoading }) => {
-	if (isLoading) {
+const Forecast = () => {
+	const {
+		weather: {
+			forecast: { loaders, loading, error, list }
+		}
+	} = useContext(Context);
+
+	if (loading) {
 		return (
 			<Container>
-				{[0, 1, 2, 3, 4].map(id => (
-					<Card key={id}>
-						<Skeleton width="60%" />
-						<Skeleton variant="rect" width="100%" height={70} />
-						<Skeleton width="60%" />
-					</Card>
-				))}
+				{Array(loaders)
+					.fill('')
+					.map((_, i) => i)
+					.map(id => (
+						<Card key={id}>
+							<Skeleton width="60%" />
+							<Skeleton variant="rect" width="100%" height={70} />
+							<Skeleton width="60%" />
+						</Card>
+					))}
 			</Container>
 		);
 	}
 
-	if (!isLoading && error && list && !list.length) {
+	if (!loading && error) {
 		return <Failed />;
 	}
 
 	return (
 		<Container>
-			{list.map(({ date, max, min, shortDay, status }) => (
+			{list.map(({ date, max, min, shortDay, status: { slug } }) => (
 				<Card key={date}>
 					<Title>{shortDay}</Title>
-					<Icon slug={status && status.slug} />
+					<Icon slug={slug} />
 					<Temperature>
 						<b>{max}°</b>/{min}°
 					</Temperature>
@@ -35,16 +44,6 @@ const Forecast = ({ list, error, isLoading }) => {
 			))}
 		</Container>
 	);
-};
-
-Forecast.propTypes = {
-	isLoading: bool,
-	list: arrayOf(object)
-};
-
-Forecast.defaultProps = {
-	isLoading: false,
-	list: []
 };
 
 export default Forecast;
