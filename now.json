@@ -1,6 +1,11 @@
 {
 	"version": 2,
-	"name": "platzi-advance",
+	"build": {
+		"env": {
+			"WEATHER_API": "https://api.openweathermap.org/data/2.5/",
+			"WEATHER_KEY": "@secretkey"
+		} 
+	},
 	"builds": [
 		{
 			"use": "@now/static-build",

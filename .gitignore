@@ -70,7 +70,7 @@ typings/
 
 # dotenv environment variables file
 .env
-.env.test
+now-secrets.json
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
@@ -97,3 +97,4 @@ public/
 .dynamodb/
 
 # End of https://www.gitignore.io/api/node
+.now
