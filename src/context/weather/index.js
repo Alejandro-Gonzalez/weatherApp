@@ -48,7 +48,7 @@ const useWeather = cities => {
 				handlingError();
 			}
 		})();
-	}, [cities.current.city]);
+	}, [cities.current]);
 
 	useEffect(() => {
 		(async () => {
@@ -67,10 +67,6 @@ const useWeather = cities => {
 			}
 		})();
 	}, [cities.coords]);
-
-	useEffect(() => {
-		cities.selectCity(0);
-	}, [cities.list]);
 
 	return state;
 };

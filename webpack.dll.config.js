@@ -8,7 +8,8 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		library: '[name]',
-		filename: 'modules.js'
+		filename: 'modules.js',
+		publicPath: '/'
 	},
 	plugins: [
 		new webpack.DllPlugin({

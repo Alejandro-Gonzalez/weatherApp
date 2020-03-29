@@ -1,5 +1,10 @@
 import styled from 'styled-components';
 import Typography from '@material-ui/core/Typography';
+import { Link as RouteLink } from '@reach/router';
+
+export const Link = styled(RouteLink)`
+	text-decoration: none;
+`;
 
 export const Title = styled(Typography).attrs({
 	variant: 'h1',
