@@ -19,6 +19,7 @@ En cuanto a performance se separaron los bundles entre módulos y app para una m
 - [Styled-components](https://www.styled-components.com/)
 - [Material-UI](https://material-ui.com/)
 - [Momentjs](https://momentjs.com/)
+- [Reach Routes](https://reach.tech/router)
 - [Now](https://zeit.co)
 
 ## Recursos
@@ -49,5 +50,5 @@ git flow init -d
 **Nota:** para poder correr localmente el proyecto se debera crear un usuario en [Open Weather Map](https://openweathermap.org/api) a fin de obtener una key para poder utilizar la API. Una vez obtenida se deberan configurar crear y configurar el archivo `.env` en base al ejemplo proporcionado `.env.example`.
 
 ```bash
-npm run watch
+npm start
 ```
