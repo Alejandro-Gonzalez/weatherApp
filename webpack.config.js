@@ -34,6 +34,10 @@ module.exports = {
 		]
 	},
 	plugins: [
+		new webpack.DefinePlugin({
+			'process.env.WEATHER_API': JSON.stringify(process.env.WEATHER_API),
+			'process.env.WEATHER_KEY': JSON.stringify(process.env.WEATHER_KEY)
+		}),
 		new HtmlWebpackPlugin({
 			template: './src/index.html'
 		}),
