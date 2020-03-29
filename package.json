@@ -42,6 +42,8 @@
     "changelog:major": "changelog -M && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version major",
     "changelog:minor": "changelog -m && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version minor",
     "changelog:patch": "changelog -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version patch",
+    "deploy:prod": "git checkout master && now --prod",
+    "deploy:qa": "git checkout develop && now",
     "now-build": "npm run build",
     "watch": "webpack-dev-server --config ./webpack.dev.config.js --mode development"
   },
