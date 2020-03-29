@@ -4,12 +4,13 @@ import { Context } from 'context';
 
 const Header = () => {
 	const {
+		proyect: { name },
 		cities: { codes }
 	} = useContext(Context);
 
 	return (
 		<Link to={`/${codes[0]}`}>
-			<Title>WeatherApp</Title>
+			<Title>{name}</Title>
 		</Link>
 	);
 };
