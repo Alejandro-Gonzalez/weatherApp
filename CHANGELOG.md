@@ -1,3 +1,9 @@
+#### 1.1.2 (2020-03-29)
+
+##### Bug Fixes
+
+* **.env:**  environment variables at buildtime fixed ([81af5633](git+https://guzmanpablo@bitbucket.org/guzmanpablo/weatherapp.git/commits/81af563390356474e56016b3179b84497adae965))
+
 #### 1.1.1 (2020-03-28)
 
 ##### Bug Fixes
