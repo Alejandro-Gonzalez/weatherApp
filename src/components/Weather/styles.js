@@ -12,10 +12,10 @@ export const Container = withTheme(
 		container: true
 	})`
 		padding: 20px 10px;
-		background: ${getColor('grey', 100)};
-		border-bottom: 1px solid ${getColor('common', 'white')};
+		background: ${getColor('grey', 50)};
+		border-bottom: 1px solid ${getColor('grey', 200)};
 		min-height: 260px;
-		height: calc(100vh - 230px);
+		height: calc(100vh - 245px);
 
 		${({ centered }) =>
 			!!centered &&

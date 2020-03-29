@@ -13,6 +13,9 @@ export const typography = {
 	h4: {
 		fontSize: '1.2rem'
 	},
+	caption: {
+		fontSize: '0.7rem'
+	},
 	subtitle1: {
 		fontSize: '0.8rem',
 		lineHeight: '1.1rem'
