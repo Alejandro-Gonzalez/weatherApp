@@ -46,9 +46,9 @@ export const reducer = (state, { type, payload }) => {
 			return {
 				...state,
 				current: {
-					code: state.codes[payload] || '',
-					city: state.list[state.codes[payload]] || '',
-					index: payload || 0
+					code: payload || '',
+					city: state.list[payload] || '',
+					index: state.codes.some(key => key === payload) ? state.codes.indexOf(payload) : 0
 				}
 			};
 
