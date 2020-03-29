@@ -39,18 +39,20 @@
   "scripts": {
     "build": "webpack",
     "build:dll": "webpack --config ./webpack.dll.config.js --mode production",
+    "now-build": "npm run build:dll && npm run build",
     "changelog:major": "changelog -M && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version major",
     "changelog:minor": "changelog -m && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version minor",
     "changelog:patch": "changelog -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version patch",
-    "now-build": "npm run build",
-    "watch": "webpack-dev-server --config ./webpack.dev.config.js --mode development"
+    "deploy:prod": "now --prod",
+    "deploy:qa": "now",
+    "start": "webpack-dev-server --config ./webpack.dev.config.js --mode development"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://guzmanpablo@bitbucket.org/guzmanpablo/weatherapp.git"
+    "url": "git+https://github.com/GuzmanPablo/weatherApp.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Pablo E. Guzmán",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/guzmanpablo/weatherapp#readme"
+  "homepage": "https://github.com/GuzmanPablo/weatherApp#readme"
 }
