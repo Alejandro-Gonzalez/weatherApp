@@ -14,7 +14,7 @@ export const Container = withTheme(
 		flex-wrap: nowrap;
 		height: 120px;
 		justify-content: space-between;
-		background: ${getColor('grey', 50)};
+		background: ${getColor('grey', 300)};
 		padding: 10px 0px;
 	`
 );
@@ -27,7 +27,7 @@ export const Card = withTheme(
 		padding: 0px 10px;
 		flex-grow: 1;
 		flex-direction: column;
-		border-right: 2px dotted ${getColor('grey', 200)};
+		border-right: 1px solid ${getColor('grey', 200)};
 
 		&:last-child {
 			border-right: none;

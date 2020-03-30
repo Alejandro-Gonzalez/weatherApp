@@ -6,7 +6,8 @@ import { getColor } from 'utils/mui';
 
 export const Caption = withTheme(
 	styled(Typography).attrs({ variant: 'caption' })`
-		background-color: ${getColor('grey', 100)};
+		background-color: ${getColor('grey', 200)};
+		border-top: 1px solid ${getColor('grey', 50)};
 		color: ${getColor('grey', 500)};
 		${flexCenter}
 	`
