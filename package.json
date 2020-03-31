@@ -1,11 +1,12 @@
 {
   "name": "weatherapp",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "Proyecto de pruebas para practicas en general",
   "main": "index.js",
   "dependencies": {
     "@material-ui/core": "4.5.2",
     "@material-ui/lab": "4.0.0-alpha.30",
+    "@reach/router": "1.3.3",
     "moment": "2.24.0",
     "prop-types": "15.7.2",
     "react": "16.11.0",
@@ -39,18 +40,20 @@
   "scripts": {
     "build": "webpack",
     "build:dll": "webpack --config ./webpack.dll.config.js --mode production",
+    "now-build": "npm run build:dll && npm run build",
     "changelog:major": "changelog -M && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version major",
     "changelog:minor": "changelog -m && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version minor",
     "changelog:patch": "changelog -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version patch",
-    "now-build": "npm run build",
-    "watch": "webpack-dev-server --config ./webpack.dev.config.js --mode development"
+    "deploy:prod": "now --prod",
+    "deploy:qa": "now",
+    "start": "webpack-dev-server --config ./webpack.dev.config.js --mode development --history-api-fallback"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://guzmanpablo@bitbucket.org/guzmanpablo/weatherapp.git"
+    "url": "git+https://github.com/GuzmanPablo/weatherApp.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Pablo E. Guzmán",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/guzmanpablo/weatherapp#readme"
+  "homepage": "https://github.com/GuzmanPablo/weatherApp#readme"
 }

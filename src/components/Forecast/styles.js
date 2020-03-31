@@ -14,24 +14,26 @@ export const Container = withTheme(
 		flex-wrap: nowrap;
 		height: 120px;
 		justify-content: space-between;
-		background: ${getColor('grey', 100)};
+		background: ${getColor('grey', 300)};
 		padding: 10px 0px;
 	`
 );
 
-export const Card = styled(Grid).attrs({
-	item: true
-})`
-	${flexCenter}
-	padding: 0px 10px;
-	flex-grow: 1;
-	flex-direction: column;
-	border-right: 2px dotted #fff;
+export const Card = withTheme(
+	styled(Grid).attrs({
+		item: true
+	})`
+		${flexCenter}
+		padding: 0px 10px;
+		flex-grow: 1;
+		flex-direction: column;
+		border-right: 1px solid ${getColor('grey', 200)};
 
-	&:last-child {
-		border-right: none;
-	}
-`;
+		&:last-child {
+			border-right: none;
+		}
+	`
+);
 
 export const Title = withTheme(
 	styled(Typography).attrs({
@@ -48,7 +50,6 @@ export const Temperature = styled(Typography).attrs({
 	variant: 'caption',
 	color: 'primary'
 })`
-	font-size: 0.7rem;
 	display: flex;
 	align-items: flex-start;
 	letter-spacing: 0px;

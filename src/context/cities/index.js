@@ -8,7 +8,7 @@ const useCities = () => {
 	const [state, dispath] = useReducer(reducer, initial);
 	const { setCoords, setCurrentCity, setLoading, addCity, setCodes } = actions(dispath);
 
-	const selectCity = useCallback((_, value) => setCurrentCity(value), []);
+	const selectCity = useCallback(setCurrentCity, []);
 
 	const addNewCity = ({ code, city }) => {
 		addCity({ code, city });

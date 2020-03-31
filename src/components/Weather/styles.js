@@ -12,10 +12,9 @@ export const Container = withTheme(
 		container: true
 	})`
 		padding: 20px 10px;
-		background: ${getColor('grey', 100)};
-		border-bottom: 1px solid ${getColor('common', 'white')};
+		background: linear-gradient(to bottom, ${getColor('grey', 50)}, ${getColor('grey', 300)});
 		min-height: 260px;
-		height: calc(100vh - 230px);
+		height: calc(100vh - 245px);
 
 		${({ centered }) =>
 			!!centered &&
@@ -44,7 +43,7 @@ export const Title = withTheme(
 		variant: 'h2'
 	})`
 		font-size: 2.4rem;
-		color: ${getColor('primary', 'light')};
+		color: ${getColor('primary')};
 		font-weight: 300;
 		margin-bottom: 0.2rem;
 	`
