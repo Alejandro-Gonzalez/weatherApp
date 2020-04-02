@@ -16,7 +16,6 @@ const useWeather = cities => {
 		setWeatherLoading,
 		setForecastData,
 		setForecastLoading,
-		generalError,
 		setForecastError,
 		setWeatherError
 	} = actions(dispatch);
@@ -26,46 +25,32 @@ const useWeather = cities => {
 		setForecastLoading(true);
 	};
 
-	const handlingError = () => {
-		const { weather, forecast } = state;
-		if (!forecast.list.lenght) setForecastError();
-		else if (!weather.date) setWeatherError();
-		else generalError();
-	};
+	useEffect(() => {
+		if (!cities.current.city || cities.current.city === state.weather.city) return;
+
+		loading();
+		getWeatherByCode(cities.current)
+			.then(setWeatherData)
+			.catch(setWeatherError);
+		getForecastByCode(cities.current)
+			.then(setForecastData)
+			.catch(setForecastError);
+	}, [cities.current.city]);
 
 	useEffect(() => {
-		(async () => {
-			try {
-				if (!cities.current.city || cities.current.city === state.weather.city) return;
-				loading();
-
-				const weather = await getWeatherByCode(cities.current);
-				setWeatherData(weather);
-
-				const forecast = await getForecastByCode(cities.current);
-				setForecastData(forecast);
-			} catch (err) {
-				handlingError();
-			}
-		})();
-	}, [cities.current]);
-
-	useEffect(() => {
-		(async () => {
-			try {
-				if (cities.coords) {
-					loading();
-					const weather = await getWeatherByCoords(cities.coords);
-					setWeatherData(weather);
-					cities.addCity(weather);
-
-					const forecast = await getForecastByCoords(cities.coords);
-					setForecastData(forecast);
-				}
-			} catch (err) {
-				handlingError();
-			}
-		})();
+		if (cities.coords) {
+			loading();
+			getWeatherByCoords(cities.coords)
+				.then(response => {
+					cities.addCity(response);
+					if (cities.current.code === response.code || !cities.current.index)
+						setWeatherData(response);
+				})
+				.catch(setWeatherError);
+			getForecastByCoords(cities.coords)
+				.then(setForecastData)
+				.catch(setForecastError);
+		}
 	}, [cities.coords]);
 
 	return state;

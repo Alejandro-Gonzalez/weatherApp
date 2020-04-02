@@ -1,3 +1,14 @@
+#### 1.2.1 (2020-04-02)
+
+##### Chores
+
+* **constant:**  remove deprecated file ([1c7bb41c](https://github.com/GuzmanPablo/weatherApp/commit/1c7bb41ca105bf780940a1b688c958c41920cd22))
+
+##### Bug Fixes
+
+* **ErrorHandling:**  fixed loading error components ([61d4faab](https://github.com/GuzmanPablo/weatherApp/commit/61d4faab35f337052c84d40b81f6ac1978874620))
+* **Geolocation:**  loading error when geo is not allowed ([bd140a8e](https://github.com/GuzmanPablo/weatherApp/commit/bd140a8e97c1d5ae13e3f11a09706bf788e8f365))
+
 ### 1.2.0 (2020-03-31)
 
 ##### Chores
