@@ -20,19 +20,7 @@ const Weather = () => {
 	const {
 		cities: { list },
 		weather: {
-			weather: {
-				loading,
-				error,
-				date,
-				code,
-				temp,
-				wind,
-				max,
-				min,
-				humidity,
-				status,
-				status: { description, slug }
-			}
+			weather: { loading, error, date, code, temp, wind, max, min, humidity, status }
 		}
 	} = useContext(Context);
 
@@ -57,12 +45,12 @@ const Weather = () => {
 			<Header>
 				<Title>{list[code]}</Title>
 				<Text>
-					{date} - {status && description}
+					{date} - {status && status.description}
 				</Text>
 			</Header>
 			<Body>
 				<Forecast>
-					<Icon slug={status && slug} />
+					<Icon slug={status && status.slug} />
 				</Forecast>
 				<Details>
 					<Temperature>

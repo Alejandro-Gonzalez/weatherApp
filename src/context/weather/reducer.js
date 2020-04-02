@@ -32,7 +32,10 @@ export const reducer = (state, { type, payload }) => {
 		case SET_ERROR:
 			return {
 				...state,
-				[payload]: true
+				[payload]: {
+					...state[payload],
+					error: true
+				}
 			};
 
 		case SET_FORECAST_LOADING:

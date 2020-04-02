@@ -21,8 +21,15 @@ export const actions = dispatch => {
 		setForecastLoading(false);
 	};
 
-	const setForecastError = () => dispatch({ type: SET_ERROR, payload: 'forecast' });
-	const setWeatherError = () => dispatch({ type: SET_ERROR, payload: 'weather' });
+	const setForecastError = () => {
+		dispatch({ type: SET_ERROR, payload: 'forecast' });
+		setForecastLoading(false);
+	};
+
+	const setWeatherError = () => {
+		dispatch({ type: SET_ERROR, payload: 'weather' });
+		setWeatherLoading(false);
+	};
 
 	const generalError = () => {
 		setForecastError();

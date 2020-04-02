@@ -62,13 +62,15 @@ export const Icon = styled(Icons).attrs({
 	margin: 10px 0px;
 `;
 
-export const Failed = styled(ErrorMessage)`
-	flex-direction: row;
+export const Failed = withTheme(styled(ErrorMessage)`
 	height: 120px;
+	flex-direction: row;
+	background: ${getColor('grey', 300)};
+	border-top: 2px dashed ${getColor('grey', 200)};
 
 	&& span,
 	&& svg {
 		height: 80px;
 		width: 100px;
 	}
-`;
+`);

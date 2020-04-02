@@ -5,52 +5,38 @@ const fetchData = async query => {
 	try {
 		const response = await fetch(query);
 		const data = await response.json();
-
-		if (data && data.code && data.code !== '200')
-			throw ReferenceError('Request Error', data.message);
-
+		if (data && Number(data.cod) !== 200) throw new ReferenceError('Request Error', data.message);
 		return data;
 	} catch (error) {
-		return error;
+		console.error(error);
+		return null;
 	}
 };
 
 export const getWeatherByCode = async ({ city, code }) => {
-	try {
-		const query = `${API_URL}/weather?q=${city},${code}&appid=${API_KEY}&units=metric`;
-		const response = await fetchData(query);
-		return formatData(response);
-	} catch (error) {
-		return error;
-	}
+	const query = `${API_URL}/weather?q=${city},${code}&appid=${API_KEY}&units=metric`;
+	const response = await fetchData(query);
+	if (!response) throw new ReferenceError('Data empty');
+	return formatData(response);
 };
 
 export const getForecastByCode = async ({ city, code }) => {
-	try {
-		const query = `${API_URL}/forecast?q=${city},${code}&appid=${API_KEY}&units=metric`;
-		const response = await fetchData(query);
-		return filterData(response);
-	} catch (error) {
-		return error;
-	}
+	const query = `${API_URL}/forecast?q=${city},${code}&appid=${API_KEY}&units=metric`;
+	const response = await fetchData(query);
+	if (!response) throw new ReferenceError('Data empty');
+	return filterData(response);
 };
 
 export const getWeatherByCoords = async ([lat, lon]) => {
-	try {
-		const query = `${API_URL}/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`;
-		const response = await fetchData(query);
-		return formatData(response);
-	} catch (error) {
-		return error;
-	}
+	const query = `${API_URL}/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`;
+	const response = await fetchData(query);
+	if (!response) throw new ReferenceError('Data empty');
+	return formatData(response);
 };
 
 export const getForecastByCoords = async ([lat, lon]) => {
-	try {
-		const query = `${API_URL}/forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`;
-		const response = await fetchData(query);
-		return filterData(response);
-	} catch (error) {
-		return error;
-	}
+	const query = `${API_URL}/forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`;
+	const response = await fetchData(query);
+	if (!response) throw new ReferenceError('Data empty');
+	return filterData(response);
 };
