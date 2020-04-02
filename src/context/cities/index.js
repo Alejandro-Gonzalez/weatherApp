@@ -16,13 +16,16 @@ const useCities = () => {
 	};
 
 	useEffect(() => {
+		setCodes();
 		setLoading(true);
+
 		getGeolocation()
-			.then(coords => {
-				setLoading(false);
-				setCoords(coords);
+			.then(setCoords)
+			.catch(() => {
+				const [first] = Object.keys(state.list);
+				selectCity(first);
 			})
-			.catch(() => setLoading(false));
+			.finally(() => setLoading(false));
 	}, []);
 
 	return { ...state, selectCity, addCity: addNewCity };
